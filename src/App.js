@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Login from "./components/Login";
+import BubblePage from './components/BubblePage'
 import "./styles.scss";
 
 function App() {
@@ -12,7 +13,12 @@ function App() {
           Color Picker Sprint Challenge
           <a data-testid="logoutButton" href="#">logout</a>
         </header>
-        <Login/>
+        <Route exact path='/'>
+          <Login/>
+        </Route>
+        <Route path='/bubble-page'>
+          <BubblePage/>
+        </Route>
       </div>
     </Router>
   );
