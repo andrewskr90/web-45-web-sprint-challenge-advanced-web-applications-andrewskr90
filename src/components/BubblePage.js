@@ -21,13 +21,9 @@ const BubblePage = () => {
   };
 
   const saveEdit = (editColor, id) => {
-    console.log(editColor)
-    console.log(id)
       axiosWithAuth()
       .put(`/colors/${id}`,editColor)
       .then(res => {
-        console.log(res.data)
-
         let newArray = colors.map(col => {
           if(col.id == id){
             return res.data
@@ -35,14 +31,22 @@ const BubblePage = () => {
             return col
           }
         })
-
         setColors(newArray)
       })
       .catch(err => console.log(err))
       .finally(() => push('/bubble-page'))
   };
 
-  const deleteColor = (colorToDelete) => {
+  const deleteColor = (colorToDelete, deleteId) => {
+    console.log(deleteId)
+    axiosWithAuth()
+      .delete(`/colors/${deleteId}`)
+      .then(res => {
+        let deleteArray = colors.filter(col => col.id != deleteId)
+        setColors(deleteArray)
+        console.log(deleteArray)
+      })
+      .catch(err => console.log(err))
   };
 
   return (

@@ -8,9 +8,11 @@ const Color = (props) => {
     const { push } = useHistory()
 
     const handleDelete = (e) => {
+        // e.preventDefault()
         e.stopPropagation();
-        deleteColor(color);
+        deleteColor(color, id);
         toggleEdit(false);
+        // push('/bubble-page')
     }
 
     const handleEdit = (e) => {
