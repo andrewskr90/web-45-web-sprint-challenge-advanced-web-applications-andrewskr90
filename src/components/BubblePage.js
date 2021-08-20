@@ -10,7 +10,9 @@ const BubblePage = () => {
   const [colors, setColors] = useState([]);
   const [editing, setEditing] = useState(false);
 
-  const { push } = useHistory()
+  const history = useHistory()
+
+  const push = history.push
 
   useEffect(() => {
     fetchColorService(setColors)

@@ -5,7 +5,8 @@ const Color = (props) => {
     const {color, setEditColor, toggleEdit, deleteColor} = props;
     const id = color.id
 
-    const { push } = useHistory()
+    const history = useHistory()
+    const push = history.push
 
     const handleDelete = (e) => {
         // e.preventDefault()
