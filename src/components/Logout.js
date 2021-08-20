@@ -14,7 +14,7 @@ const Logout = () => {
                 push('/login')
             })
             .catch(err=> console.log(err))
-    }, [])
+    })
 
     return(
         <div>Logging out...</div>

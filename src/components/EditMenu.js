@@ -1,8 +1,11 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 const EditMenu = (props) => {
   const {editColor, setEditColor, saveEdit, toggleEdit} = props;
-  
+
+  const { id } = useParams()
+
   const handleChange = (e) => {
     if (e.target.name === "colorName") {
       setEditColor({ ...editColor, color: e.target.value })
@@ -15,8 +18,8 @@ const EditMenu = (props) => {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    saveEdit(editColor);
+    e.preventDefault()
+    saveEdit(editColor, id);
   }
 
   const handleCancel = () => {

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 import axiosWithAuth from "./helpers/axiosWithAuth";
 
 import Login from "./components/Login";
@@ -9,7 +9,6 @@ import PrivateRoute from "./components/PrivateRoute";
 import "./styles.scss";
 
 function App(props) {
-  console.log(props)
 
   const handleLogout = (e) => {
     axiosWithAuth()

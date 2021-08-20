@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Route } from 'react-router-dom'
 
 import Color from './Color';
 import EditMenu from './EditMenu';
@@ -14,7 +15,10 @@ const ColorList = (props) => {
         {colors.map(color => <Color key={color.id} setEditColor={setEditColor} color={color} toggleEdit={toggleEdit} deleteColor={deleteColor}/>)}
       </ul>
       
-      {editing && <EditMenu editColor={editColor} setEditColor={setEditColor} toggleEdit={toggleEdit} saveEdit={saveEdit}/>}
+      {editing && (
+        <Route path='/bubble-page/edit-color/:id'>
+          <EditMenu editColor={editColor} setEditColor={setEditColor} toggleEdit={toggleEdit} saveEdit={saveEdit}/>
+        </Route>)}
     </div>
   );
 };

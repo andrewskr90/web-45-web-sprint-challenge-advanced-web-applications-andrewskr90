@@ -1,7 +1,11 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom'
 
 const Color = (props) => {
     const {color, setEditColor, toggleEdit, deleteColor} = props;
+    const id = color.id
+
+    const { push } = useHistory()
 
     const handleDelete = (e) => {
         e.stopPropagation();
@@ -12,6 +16,7 @@ const Color = (props) => {
     const handleEdit = (e) => {
         setEditColor(color);
         toggleEdit(true);
+        push(`/bubble-page/edit-color/${id}`)
     }
 
     return(<li data-testid="color" id="color" onClick={handleEdit}>
