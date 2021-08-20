@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axiosWithAuth from "./helpers/axiosWithAuth";
 
 import Login from "./components/Login";
@@ -22,6 +22,7 @@ function App(props) {
   return (
     
       <div className="App">
+        <Router>
         <header>
           Color Picker Sprint Challenge
           <a onClick={handleLogout} data-testid="logoutButton" href="/login">logout</a>
@@ -36,6 +37,7 @@ function App(props) {
           <Login/>
         </Route>
         </Switch>
+        </Router>
       </div>
     
   );

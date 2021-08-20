@@ -7,7 +7,7 @@ import EditMenu from './EditMenu';
 const ColorList = (props) => {
   const { colors, editing, toggleEdit, saveEdit, deleteColor } = props;
   const [ editColor, setEditColor] = useState({ color: "", code: { hex: "" }});
-console.log(colors)
+
   return (
     <div className="colors-wrap">
       <p id="color_title">colors</p>
